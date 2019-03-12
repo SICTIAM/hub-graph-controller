@@ -20,6 +20,7 @@ import java.util.concurrent.Executors
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
+import fr.sictiam.amqp.api.AmqpClientConfiguration
 import fr.sictiam.amqp.api.controllers.AmqpController
 import fr.sictiam.hdd.tasks.{GraphCreateTask, GraphDeleteTask, GraphReadTask, GraphUpdateTask}
 
@@ -43,7 +44,7 @@ object GraphController extends App {
     def reportFailure(t: Throwable) {}
   }
 
-  val controller = new AmqpController("hddexchange", "Graph Controller")
+  val controller = new AmqpController(AmqpClientConfiguration.exchangeName, "Graph Controller")
   controller.registerTask("graph.create", new GraphCreateTask)
   controller.registerTask("graph.read", new GraphReadTask)
   controller.registerTask("graph.update", new GraphUpdateTask)

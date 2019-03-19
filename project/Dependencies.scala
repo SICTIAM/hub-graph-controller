@@ -13,8 +13,11 @@ object Dependencies {
 
   lazy val akkaSlf4j = "com.typesafe.akka" %% "akka-slf4j" % "2.5.19"
   lazy val playJson = "com.typesafe.play" %% "play-json" % "2.7.0"
+  lazy val playWs = "com.typesafe.play" %% "play-ws" % "2.7.0-RC9"
+  lazy val playWSAhc = "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.0.0-RC2"
   lazy val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
   lazy val rabbitmqClient = "com.rabbitmq" % "amqp-client" % "5.6.0"
   lazy val jenaLibs = "org.apache.jena" % "apache-jena-libs" % "3.10.0" pomOnly()
-  lazy val amqpLib = "fr.sictiam" %% "hub-amqp-lib" % "0.1.0-SNAPSHOT"
+  lazy val amqpLib = "fr.sictiam" %% "hub-amqp-lib" % "0.1.1-SNAPSHOT"
+
 }

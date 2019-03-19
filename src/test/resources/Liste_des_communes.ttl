@@ -1,0 +1,1777 @@
+@prefix cla: <http://data.clairsienne.fr/ontologie#> .
+@prefix com: <http://data.clairsienne.fr/commune/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dep: <http://data.clairsienne.fr/departement/> .
+@prefix epci: <http://data.clairsienne.fr/epci/> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://data.clairsienne.fr/region/> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+com:commune_17306 a cla:Commune;
+  cla:codeInsee "17306";
+  cla:estUneSubdivisionDe epci:epci_241700640;
+  rdfs:label "Royan"@fr .
+
+com:commune_24037 a cla:Commune;
+  cla:codeInsee "24037";
+  cla:estUneSubdivisionDe epci:epci_200070647;
+  rdfs:label "Bergerac"@fr .
+
+com:commune_24053 a cla:Commune;
+  cla:codeInsee "24053";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Boulazac Isle Manoire"@fr .
+
+com:commune_24098 a cla:Commune;
+  cla:codeInsee "24098";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Champcevinel"@fr .
+
+com:commune_24102 a cla:Commune;
+  cla:codeInsee "24102";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Chancelade"@fr .
+
+com:commune_24309 a cla:Commune;
+  cla:codeInsee "24309";
+  cla:estUneSubdivisionDe epci:epci_200040095;
+  rdfs:label "Neuvic"@fr .
+
+com:commune_24311 a cla:Commune;
+  cla:codeInsee "24311";
+  cla:estUneSubdivisionDe epci:epci_200071819;
+  rdfs:label "Nontron"@fr .
+
+com:commune_24312 a cla:Commune;
+  cla:codeInsee "24312";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Sanilhac"@fr .
+
+com:commune_24350 a cla:Commune;
+  cla:codeInsee "24350";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Razac-sur-l'Isle"@fr .
+
+com:commune_24372 a cla:Commune;
+  cla:codeInsee "24372";
+  cla:estUneSubdivisionDe epci:epci_200040095;
+  rdfs:label "Saint-Astier"@fr .
+
+com:commune_24557 a cla:Commune;
+  cla:codeInsee "24557";
+  cla:estUneSubdivisionDe epci:epci_200040392;
+  rdfs:label "Trélissac"@fr .
+
+com:commune_33001 a cla:Commune;
+  cla:codeInsee "33001";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Abzac"@fr .
+
+com:commune_33003 a cla:Commune;
+  cla:codeInsee "33003";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Ambarès-et-Lagrave"@fr .
+
+com:commune_33004 a cla:Commune;
+  cla:codeInsee "33004";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Ambès"@fr .
+
+com:commune_33005 a cla:Commune;
+  cla:codeInsee "33005";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Andernos-les-Bains"@fr .
+
+com:commune_33009 a cla:Commune;
+  cla:codeInsee "33009";
+  cla:estUneSubdivisionDe epci:epci_243300563;
+  rdfs:label "Arcachon"@fr .
+
+com:commune_33011 a cla:Commune;
+  cla:codeInsee "33011";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Arès"@fr .
+
+com:commune_33013 a cla:Commune;
+  cla:codeInsee "33013";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Artigues-près-Bordeaux"@fr .
+
+com:commune_33014 a cla:Commune;
+  cla:codeInsee "33014";
+  cla:estUneSubdivisionDe epci:epci_200035533;
+  rdfs:label "Les Artigues-de-Lussac"@fr .
+
+com:commune_33015 a cla:Commune;
+  cla:codeInsee "33015";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Arveyres"@fr .
+
+com:commune_33019 a cla:Commune;
+  cla:codeInsee "33019";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Audenge"@fr .
+
+com:commune_33023 a cla:Commune;
+  cla:codeInsee "33023";
+  cla:estUneSubdivisionDe epci:epci_243301264;
+  rdfs:label "Ayguemorte-les-Graves"@fr .
+
+com:commune_33032 a cla:Commune;
+  cla:codeInsee "33032";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Bassens"@fr .
+
+com:commune_33036 a cla:Commune;
+  cla:codeInsee "33036";
+  cla:estUneSubdivisionDe epci:epci_200043982;
+  rdfs:label "Bazas"@fr .
+
+com:commune_33039 a cla:Commune;
+  cla:codeInsee "33039";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Bègles"@fr .
+
+com:commune_33042 a cla:Commune;
+  cla:codeInsee "33042";
+  cla:estUneSubdivisionDe epci:epci_243301405;
+  rdfs:label "Belin-Béliet"@fr .
+
+com:commune_33047 a cla:Commune;
+  cla:codeInsee "33047";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Berson"@fr .
+
+com:commune_33051 a cla:Commune;
+  cla:codeInsee "33051";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Biganos"@fr .
+
+com:commune_33056 a cla:Commune;
+  cla:codeInsee "33056";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Blanquefort"@fr .
+
+com:commune_33058 a cla:Commune;
+  cla:codeInsee "33058";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Blaye"@fr .
+
+com:commune_33063 a cla:Commune;
+  cla:codeInsee "33063";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Bordeaux"@fr .
+
+com:commune_33067 a cla:Commune;
+  cla:codeInsee "33067";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Bourg"@fr .
+
+com:commune_33069 a cla:Commune;
+  cla:codeInsee "33069";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Le Bouscat"@fr .
+
+com:commune_33071 a cla:Commune;
+  cla:codeInsee "33071";
+  cla:estUneSubdivisionDe epci:epci_243301454;
+  rdfs:label "Branne"@fr .
+
+com:commune_33075 a cla:Commune;
+  cla:codeInsee "33075";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Bruges"@fr .
+
+com:commune_33080 a cla:Commune;
+  cla:codeInsee "33080";
+  cla:estUneSubdivisionDe epci:epci_243301264;
+  rdfs:label "Cadaujac"@fr .
+
+com:commune_33083 a cla:Commune;
+  cla:codeInsee "33083";
+  cla:estUneSubdivisionDe epci:epci_243301355;
+  rdfs:label "Camarsac"@fr .
+
+com:commune_33084 a cla:Commune;
+  cla:codeInsee "33084";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Cambes"@fr .
+
+com:commune_33085 a cla:Commune;
+  cla:codeInsee "33085";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Camblanes-et-Meynac"@fr .
+
+com:commune_33090 a cla:Commune;
+  cla:codeInsee "33090";
+  cla:estUneSubdivisionDe epci:epci_243301165;
+  rdfs:label "Canéjan"@fr .
+
+com:commune_33096 a cla:Commune;
+  cla:codeInsee "33096";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Carbon-Blanc"@fr .
+
+com:commune_33099 a cla:Commune;
+  cla:codeInsee "33099";
+  cla:estUneSubdivisionDe epci:epci_243301355;
+  rdfs:label "Carignan-de-Bordeaux"@fr .
+
+com:commune_33106 a cla:Commune;
+  cla:codeInsee "33106";
+  cla:estUneSubdivisionDe epci:epci_200043974;
+  rdfs:label "Castets et Castillon"@fr .
+
+com:commune_33108 a cla:Commune;
+  cla:codeInsee "33108";
+  cla:estUneSubdivisionDe epci:epci_243301454;
+  rdfs:label "Castillon-la-Bataille"@fr .
+
+com:commune_33118 a cla:Commune;
+  cla:codeInsee "33118";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Cénac"@fr .
+
+com:commune_33119 a cla:Commune;
+  cla:codeInsee "33119";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Cenon"@fr .
+
+com:commune_33122 a cla:Commune;
+  cla:codeInsee "33122";
+  cla:estUneSubdivisionDe epci:epci_243301165;
+  rdfs:label "Cestas"@fr .
+
+com:commune_33123 a cla:Commune;
+  cla:codeInsee "33123";
+  cla:estUneSubdivisionDe epci:epci_243301181;
+  rdfs:label "Cézac"@fr .
+
+com:commune_33126 a cla:Commune;
+  cla:codeInsee "33126";
+  cla:estUneSubdivisionDe epci:epci_243301181;
+  rdfs:label "Civrac-de-Blaye"@fr .
+
+com:commune_33138 a cla:Commune;
+  cla:codeInsee "33138";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Coutras"@fr .
+
+com:commune_33140 a cla:Commune;
+  cla:codeInsee "33140";
+  cla:estUneSubdivisionDe epci:epci_243301215;
+  rdfs:label "Créon"@fr .
+
+com:commune_33142 a cla:Commune;
+  cla:codeInsee "33142";
+  cla:estUneSubdivisionDe epci:epci_243301181;
+  rdfs:label "Cubnezais"@fr .
+
+com:commune_33143 a cla:Commune;
+  cla:codeInsee "33143";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Cubzac-les-Ponts"@fr .
+
+com:commune_33159 a cla:Commune;
+  cla:codeInsee "33159";
+  cla:estUneSubdivisionDe epci:epci_243300811;
+  rdfs:label "Étauliers"@fr .
+
+com:commune_33162 a cla:Commune;
+  cla:codeInsee "33162";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Eysines"@fr .
+
+com:commune_33165 a cla:Commune;
+  cla:codeInsee "33165";
+  cla:estUneSubdivisionDe epci:epci_243301355;
+  rdfs:label "Fargues-Saint-Hilaire"@fr .
+
+com:commune_33167 a cla:Commune;
+  cla:codeInsee "33167";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Floirac"@fr .
+
+com:commune_33179 a cla:Commune;
+  cla:codeInsee "33179";
+  cla:estUneSubdivisionDe epci:epci_243301397;
+  rdfs:label "Galgon"@fr .
+
+com:commune_33183 a cla:Commune;
+  cla:codeInsee "33183";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Gauriaguet"@fr .
+
+com:commune_33192 a cla:Commune;
+  cla:codeInsee "33192";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Gradignan"@fr .
+
+com:commune_33198 a cla:Commune;
+  cla:codeInsee "33198";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Guîtres"@fr .
+
+com:commune_33199 a cla:Commune;
+  cla:codeInsee "33199";
+  cla:estUneSubdivisionDe epci:epci_243300563;
+  rdfs:label "Gujan-Mestras"@fr .
+
+com:commune_33200 a cla:Commune;
+  cla:codeInsee "33200";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Le Haillan"@fr .
+
+com:commune_33201 a cla:Commune;
+  cla:codeInsee "33201";
+  cla:estUneSubdivisionDe epci:epci_243301215;
+  rdfs:label "Haux"@fr .
+
+com:commune_33207 a cla:Commune;
+  cla:codeInsee "33207";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Izon"@fr .
+
+com:commune_33214 a cla:Commune;
+  cla:codeInsee "33214";
+  cla:estUneSubdivisionDe epci:epci_200070720;
+  rdfs:label "Lacanau"@fr .
+
+com:commune_33218 a cla:Commune;
+  cla:codeInsee "33218";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Lagorce"@fr .
+
+com:commune_33225 a cla:Commune;
+  cla:codeInsee "33225";
+  cla:estUneSubdivisionDe epci:epci_200069581;
+  rdfs:label "Landiras"@fr .
+
+com:commune_33226 a cla:Commune;
+  cla:codeInsee "33226";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Langoiran"@fr .
+
+com:commune_33229 a cla:Commune;
+  cla:codeInsee "33229";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Lanton"@fr .
+
+com:commune_33234 a cla:Commune;
+  cla:codeInsee "33234";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Latresne"@fr .
+
+com:commune_33236 a cla:Commune;
+  cla:codeInsee "33236";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Lège-Cap-Ferret"@fr .
+
+com:commune_33238 a cla:Commune;
+  cla:codeInsee "33238";
+  cla:estUneSubdivisionDe epci:epci_243301264;
+  rdfs:label "Léognan"@fr .
+
+com:commune_33243 a cla:Commune;
+  cla:codeInsee "33243";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Libourne"@fr .
+
+com:commune_33249 a cla:Commune;
+  cla:codeInsee "33249";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Lormont"@fr .
+
+com:commune_33258 a cla:Commune;
+  cla:codeInsee "33258";
+  cla:estUneSubdivisionDe epci:epci_200069599;
+  rdfs:label "Lugasson"@fr .
+
+com:commune_33261 a cla:Commune;
+  cla:codeInsee "33261";
+  cla:estUneSubdivisionDe epci:epci_200035533;
+  rdfs:label "Lussac"@fr .
+
+com:commune_33273 a cla:Commune;
+  cla:codeInsee "33273";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Martignas-sur-Jalle"@fr .
+
+com:commune_33281 a cla:Commune;
+  cla:codeInsee "33281";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Mérignac"@fr .
+
+com:commune_33284 a cla:Commune;
+  cla:codeInsee "33284";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Mios"@fr .
+
+com:commune_33312 a cla:Commune;
+  cla:codeInsee "33312";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Parempuyre"@fr .
+
+com:commune_33317 a cla:Commune;
+  cla:codeInsee "33317";
+  cla:estUneSubdivisionDe epci:epci_243301397;
+  rdfs:label "Périssac"@fr .
+
+com:commune_33318 a cla:Commune;
+  cla:codeInsee "33318";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Pessac"@fr .
+
+com:commune_33320 a cla:Commune;
+  cla:codeInsee "33320";
+  cla:estUneSubdivisionDe epci:epci_200035533;
+  rdfs:label "Petit-Palais-et-Cornemps"@fr .
+
+com:commune_33321 a cla:Commune;
+  cla:codeInsee "33321";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Peujard"@fr .
+
+com:commune_33324 a cla:Commune;
+  cla:codeInsee "33324";
+  cla:estUneSubdivisionDe epci:epci_243301371;
+  rdfs:label "Pineuilh"@fr .
+
+com:commune_33325 a cla:Commune;
+  cla:codeInsee "33325";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Plassac"@fr .
+
+com:commune_33327 a cla:Commune;
+  cla:codeInsee "33327";
+  cla:estUneSubdivisionDe epci:epci_200069581;
+  rdfs:label "Podensac"@fr .
+
+com:commune_33328 a cla:Commune;
+  cla:codeInsee "33328";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Pomerol"@fr .
+
+com:commune_33330 a cla:Commune;
+  cla:codeInsee "33330";
+  cla:estUneSubdivisionDe epci:epci_243301355;
+  rdfs:label "Pompignac"@fr .
+
+com:commune_33349 a cla:Commune;
+  cla:codeInsee "33349";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Quinsac"@fr .
+
+com:commune_33350 a cla:Commune;
+  cla:codeInsee "33350";
+  cla:estUneSubdivisionDe epci:epci_243301454;
+  rdfs:label "Rauzan"@fr .
+
+com:commune_33352 a cla:Commune;
+  cla:codeInsee "33352";
+  cla:estUneSubdivisionDe epci:epci_200044394;
+  rdfs:label "La Réole"@fr .
+
+com:commune_33355 a cla:Commune;
+  cla:codeInsee "33355";
+  cla:estUneSubdivisionDe epci:epci_200069581;
+  rdfs:label "Rions"@fr .
+
+com:commune_33363 a cla:Commune;
+  cla:codeInsee "33363";
+  cla:estUneSubdivisionDe epci:epci_243301215;
+  rdfs:label "Sadirac"@fr .
+
+com:commune_33366 a cla:Commune;
+  cla:codeInsee "33366";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Saint-André-de-Cubzac"@fr .
+
+com:commune_33376 a cla:Commune;
+  cla:codeInsee "33376";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Saint-Aubin-de-Médoc"@fr .
+
+com:commune_33381 a cla:Commune;
+  cla:codeInsee "33381";
+  cla:estUneSubdivisionDe epci:epci_243301439;
+  rdfs:label "Saint-Caprais-de-Bordeaux"@fr .
+
+com:commune_33402 a cla:Commune;
+  cla:codeInsee "33402";
+  cla:estUneSubdivisionDe epci:epci_243301371;
+  rdfs:label "Sainte-Foy-la-Grande"@fr .
+
+com:commune_33417 a cla:Commune;
+  cla:codeInsee "33417";
+  cla:estUneSubdivisionDe epci:epci_243301389;
+  rdfs:label "Sainte-Hélène"@fr .
+
+com:commune_33422 a cla:Commune;
+  cla:codeInsee "33422";
+  cla:estUneSubdivisionDe epci:epci_243301165;
+  rdfs:label "Saint-Jean-d'Illac"@fr .
+
+com:commune_33425 a cla:Commune;
+  cla:codeInsee "33425";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Saint-Laurent-d'Arce"@fr .
+
+com:commune_33429 a cla:Commune;
+  cla:codeInsee "33429";
+  cla:estUneSubdivisionDe epci:epci_200043974;
+  rdfs:label "Saint-Léger-de-Balson"@fr .
+
+com:commune_33433 a cla:Commune;
+  cla:codeInsee "33433";
+  cla:estUneSubdivisionDe epci:epci_243301249;
+  rdfs:label "Saint-Loubès"@fr .
+
+com:commune_33434 a cla:Commune;
+  cla:codeInsee "33434";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Saint-Louis-de-Montferrand"@fr .
+
+com:commune_33438 a cla:Commune;
+  cla:codeInsee "33438";
+  cla:estUneSubdivisionDe epci:epci_200043974;
+  rdfs:label "Saint-Maixant"@fr .
+
+com:commune_33447 a cla:Commune;
+  cla:codeInsee "33447";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Saint-Médard-de-Guizières"@fr .
+
+com:commune_33449 a cla:Commune;
+  cla:codeInsee "33449";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Saint-Médard-en-Jalles"@fr .
+
+com:commune_33454 a cla:Commune;
+  cla:codeInsee "33454";
+  cla:estUneSubdivisionDe epci:epci_243301264;
+  rdfs:label "Saint-Morillon"@fr .
+
+com:commune_33458 a cla:Commune;
+  cla:codeInsee "33458";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Saint-Paul"@fr .
+
+com:commune_33462 a cla:Commune;
+  cla:codeInsee "33462";
+  cla:estUneSubdivisionDe epci:epci_243301371;
+  rdfs:label "Saint-Philippe-du-Seignal"@fr .
+
+com:commune_33473 a cla:Commune;
+  cla:codeInsee "33473";
+  cla:estUneSubdivisionDe epci:epci_243301181;
+  rdfs:label "Saint-Savin"@fr .
+
+com:commune_33478 a cla:Commune;
+  cla:codeInsee "33478";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Saint-Seurin-sur-l'Isle"@fr .
+
+com:commune_33480 a cla:Commune;
+  cla:codeInsee "33480";
+  cla:estUneSubdivisionDe epci:epci_200035533;
+  rdfs:label "Saint-Sulpice-de-Faleyrens"@fr .
+
+com:commune_33483 a cla:Commune;
+  cla:codeInsee "33483";
+  cla:estUneSubdivisionDe epci:epci_243301249;
+  rdfs:label "Saint-Sulpice-et-Cameyrac"@fr .
+
+com:commune_33492 a cla:Commune;
+  cla:codeInsee "33492";
+  cla:estUneSubdivisionDe epci:epci_243301181;
+  rdfs:label "Saint-Yzan-de-Soudiac"@fr .
+
+com:commune_33496 a cla:Commune;
+  cla:codeInsee "33496";
+  cla:estUneSubdivisionDe epci:epci_243301355;
+  rdfs:label "Salleboeuf"@fr .
+
+com:commune_33502 a cla:Commune;
+  cla:codeInsee "33502";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Saugon"@fr .
+
+com:commune_33505 a cla:Commune;
+  cla:codeInsee "33505";
+  cla:estUneSubdivisionDe epci:epci_243301215;
+  rdfs:label "La Sauve"@fr .
+
+com:commune_33506 a cla:Commune;
+  cla:codeInsee "33506";
+  cla:estUneSubdivisionDe epci:epci_200069599;
+  rdfs:label "Sauveterre-de-Guyenne"@fr .
+
+com:commune_33519 a cla:Commune;
+  cla:codeInsee "33519";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Le Taillan-Médoc"@fr .
+
+com:commune_33522 a cla:Commune;
+  cla:codeInsee "33522";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Talence"@fr .
+
+com:commune_33524 a cla:Commune;
+  cla:codeInsee "33524";
+  cla:estUneSubdivisionDe epci:epci_243301397;
+  rdfs:label "Tarnès"@fr .
+
+com:commune_33527 a cla:Commune;
+  cla:codeInsee "33527";
+  cla:estUneSubdivisionDe epci:epci_243300563;
+  rdfs:label "Le Teich"@fr .
+
+com:commune_33529 a cla:Commune;
+  cla:codeInsee "33529";
+  cla:estUneSubdivisionDe epci:epci_243300563;
+  rdfs:label "La Teste-de-Buch"@fr .
+
+com:commune_33533 a cla:Commune;
+  cla:codeInsee "33533";
+  cla:estUneSubdivisionDe epci:epci_200043974;
+  rdfs:label "Toulenne"@fr .
+
+com:commune_33539 a cla:Commune;
+  cla:codeInsee "33539";
+  cla:estUneSubdivisionDe epci:epci_200070092;
+  rdfs:label "Vayres"@fr .
+
+com:commune_33547 a cla:Commune;
+  cla:codeInsee "33547";
+  cla:estUneSubdivisionDe epci:epci_200043974;
+  rdfs:label "Villandraut"@fr .
+
+com:commune_33548 a cla:Commune;
+  cla:codeInsee "33548";
+  cla:estUneSubdivisionDe epci:epci_243301397;
+  rdfs:label "Villegouge"@fr .
+
+com:commune_33550 a cla:Commune;
+  cla:codeInsee "33550";
+  cla:estUneSubdivisionDe epci:epci_243300316;
+  rdfs:label "Villenave-d'Ornon"@fr .
+
+com:commune_33551 a cla:Commune;
+  cla:codeInsee "33551";
+  cla:estUneSubdivisionDe epci:epci_200023794;
+  rdfs:label "Villeneuve"@fr .
+
+com:commune_33553 a cla:Commune;
+  cla:codeInsee "33553";
+  cla:estUneSubdivisionDe epci:epci_243301223;
+  rdfs:label "Virsac"@fr .
+
+com:commune_33555 a cla:Commune;
+  cla:codeInsee "33555";
+  cla:estUneSubdivisionDe epci:epci_243301504;
+  rdfs:label "Marcheprime"@fr .
+
+com:commune_40001 a cla:Commune;
+  cla:codeInsee "40001";
+  cla:estUneSubdivisionDe epci:epci_200030435;
+  rdfs:label "Aire-sur-l'Adour"@fr .
+
+com:commune_40004 a cla:Commune;
+  cla:codeInsee "40004";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Angresse"@fr .
+
+com:commune_40035 a cla:Commune;
+  cla:codeInsee "40035";
+  cla:estUneSubdivisionDe epci:epci_244000675;
+  rdfs:label "Bénesse-lès-Dax"@fr .
+
+com:commune_40036 a cla:Commune;
+  cla:codeInsee "40036";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Bénesse-Maremne"@fr .
+
+com:commune_40046 a cla:Commune;
+  cla:codeInsee "40046";
+  cla:estUneSubdivisionDe epci:epci_244000873;
+  rdfs:label "Biscarrosse"@fr .
+
+com:commune_40065 a cla:Commune;
+  cla:codeInsee "40065";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Capbreton"@fr .
+
+com:commune_40088 a cla:Commune;
+  cla:codeInsee "40088";
+  cla:estUneSubdivisionDe epci:epci_244000675;
+  rdfs:label "Dax"@fr .
+
+com:commune_40119 a cla:Commune;
+  cla:codeInsee "40119";
+  cla:estUneSubdivisionDe epci:epci_200069649;
+  rdfs:label "Hagetmau"@fr .
+
+com:commune_40133 a cla:Commune;
+  cla:codeInsee "40133";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Labenne"@fr .
+
+com:commune_40157 a cla:Commune;
+  cla:codeInsee "40157";
+  cla:estUneSubdivisionDe epci:epci_244000857;
+  rdfs:label "Lit-et-Mixe"@fr .
+
+com:commune_40192 a cla:Commune;
+  cla:codeInsee "40192";
+  cla:estUneSubdivisionDe epci:epci_244000808;
+  rdfs:label "Mont-de-Marsan"@fr .
+
+com:commune_40202 a cla:Commune;
+  cla:codeInsee "40202";
+  cla:estUneSubdivisionDe epci:epci_244000675;
+  rdfs:label "Narrosse"@fr .
+
+com:commune_40209 a cla:Commune;
+  cla:codeInsee "40209";
+  cla:estUneSubdivisionDe epci:epci_244000659;
+  rdfs:label "Ondres"@fr .
+
+com:commune_40237 a cla:Commune;
+  cla:codeInsee "40237";
+  cla:estUneSubdivisionDe epci:epci_200069631;
+  rdfs:label "Préchacq-les-Bains"@fr .
+
+com:commune_40279 a cla:Commune;
+  cla:codeInsee "40279";
+  cla:estUneSubdivisionDe epci:epci_244000675;
+  rdfs:label "Saint-Paul-lès-Dax"@fr .
+
+com:commune_40281 a cla:Commune;
+  cla:codeInsee "40281";
+  cla:estUneSubdivisionDe epci:epci_244000808;
+  rdfs:label "Saint-Pierre-du-Mont"@fr .
+
+com:commune_40284 a cla:Commune;
+  cla:codeInsee "40284";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Saint-Vincent-de-Tyrosse"@fr .
+
+com:commune_40287 a cla:Commune;
+  cla:codeInsee "40287";
+  cla:estUneSubdivisionDe epci:epci_244000873;
+  rdfs:label "Sanguinet"@fr .
+
+com:commune_40293 a cla:Commune;
+  cla:codeInsee "40293";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Saubusse"@fr .
+
+com:commune_40310 a cla:Commune;
+  cla:codeInsee "40310";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Soustons"@fr .
+
+com:commune_40312 a cla:Commune;
+  cla:codeInsee "40312";
+  cla:estUneSubdivisionDe epci:epci_244000659;
+  rdfs:label "Tarnos"@fr .
+
+com:commune_40317 a cla:Commune;
+  cla:codeInsee "40317";
+  cla:estUneSubdivisionDe epci:epci_244000865;
+  rdfs:label "Tosse"@fr .
+
+com:commune_40326 a cla:Commune;
+  cla:codeInsee "40326";
+  cla:estUneSubdivisionDe epci:epci_244000857;
+  rdfs:label "Vielle-Saint-Girons"@fr .
+
+com:commune_47157 a cla:Commune;
+  cla:codeInsee "47157";
+  cla:estUneSubdivisionDe epci:epci_200030674;
+  rdfs:label "Marmande"@fr .
+
+com:commune_47252 a cla:Commune;
+  cla:codeInsee "47252";
+  cla:estUneSubdivisionDe epci:epci_200023307;
+  rdfs:label "Sainte-Livrade-sur-Lot"@fr .
+
+com:commune_64024 a cla:Commune;
+  cla:codeInsee "64024";
+  cla:estUneSubdivisionDe epci:epci_200067106;
+  rdfs:label "Anglet"@fr .
+
+com:commune_64102 a cla:Commune;
+  cla:codeInsee "64102";
+  cla:estUneSubdivisionDe epci:epci_200067106;
+  rdfs:label "Bayonne"@fr .
+
+com:commune_64483 a cla:Commune;
+  cla:codeInsee "64483";
+  cla:estUneSubdivisionDe epci:epci_200067106;
+  rdfs:label "Saint-Jean-de-Luz"@fr .
+
+reg:region_75 a cla:Region;
+  cla:codeRegion "75";
+  rdfs:label "Nouvelle-Aquitaine"@fr .
+
+dep:departement_16 a cla:Departement;
+  cla:codeDepartement "16";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Charente"@fr .
+
+dep:departement_17 a cla:Departement;
+  cla:codeDepartement "17";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Charente-Maritime"@fr .
+
+dep:departement_19 a cla:Departement;
+  cla:codeDepartement "19";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Corrèze"@fr .
+
+dep:departement_23 a cla:Departement;
+  cla:codeDepartement "23";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Creuse"@fr .
+
+dep:departement_24 a cla:Departement;
+  cla:codeDepartement "24";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Dordogne"@fr .
+
+dep:departement_33 a cla:Departement;
+  cla:codeDepartement "33";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Gironde"@fr .
+
+dep:departement_40 a cla:Departement;
+  cla:codeDepartement "40";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Landes"@fr .
+
+dep:departement_47 a cla:Departement;
+  cla:codeDepartement "47";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Lot-et-Garonne"@fr .
+
+dep:departement_64 a cla:Departement;
+  cla:codeDepartement "64";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Pyrénées-Atlantiques"@fr .
+
+dep:departement_79 a cla:Departement;
+  cla:codeDepartement "79";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Deux-Sèvres"@fr .
+
+dep:departement_86 a cla:Departement;
+  cla:codeDepartement "86";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Vienne"@fr .
+
+dep:departement_87 a cla:Departement;
+  cla:codeDepartement "87";
+  cla:estUneSubdivisionDe reg:region_75;
+  rdfs:label "Haute-Vienne"@fr .
+
+epci:epci_242400596 a cla:EPCI;
+  cla:codeEpci "242400596";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Hauts de Dronne"@fr .
+
+epci:epci_242400604 a cla:EPCI;
+  cla:codeEpci "242400604";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Villages du Haut Périgord"@fr .
+
+epci:epci_242400620 a cla:EPCI;
+  cla:codeEpci "242400620";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "CA Le Grand Périgueux"@fr .
+
+epci:epci_242400638 a cla:EPCI;
+  cla:codeEpci "242400638";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Atur Saint-Pierre de Chignac"@fr .
+
+epci:epci_242400646 a cla:EPCI;
+  cla:codeEpci "242400646";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Cadouin"@fr .
+
+epci:epci_242400661 a cla:EPCI;
+  cla:codeEpci "242400661";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays d'Hautefort"@fr .
+
+epci:epci_242400679 a cla:EPCI;
+  cla:codeEpci "242400679";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Monpaziérois"@fr .
+
+epci:epci_242400711 a cla:EPCI;
+  cla:codeEpci "242400711";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Vallée de la Dordogne"@fr .
+
+epci:epci_242400745 a cla:EPCI;
+  cla:codeEpci "242400745";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays Beaumontois"@fr .
+
+epci:epci_242400752 a cla:EPCI;
+  cla:codeEpci "242400752";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Jumilhac le Grand"@fr .
+
+epci:epci_242400778 a cla:EPCI;
+  cla:codeEpci "242400778";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Périgord Nontronnais"@fr .
+
+epci:epci_242400786 a cla:EPCI;
+  cla:codeEpci "242400786";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Isle et Double"@fr .
+
+epci:epci_242400810 a cla:EPCI;
+  cla:codeEpci "242400810";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Champagnac en Périgord"@fr .
+
+epci:epci_242400828 a cla:EPCI;
+  cla:codeEpci "242400828";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Verteillacois"@fr .
+
+epci:epci_242400836 a cla:EPCI;
+  cla:codeEpci "242400836";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Isle Vern Salembre en Périgord"@fr .
+
+epci:epci_242400851 a cla:EPCI;
+  cla:codeEpci "242400851";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Terrassonais"@fr .
+
+epci:epci_242400869 a cla:EPCI;
+  cla:codeEpci "242400869";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Mareuil en Périgord"@fr .
+
+epci:epci_242400877 a cla:EPCI;
+  cla:codeEpci "242400877";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Canton de Domme"@fr .
+
+epci:epci_242400885 a cla:EPCI;
+  cla:codeEpci "242400885";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Périgord Noir"@fr .
+
+epci:epci_242400893 a cla:EPCI;
+  cla:codeEpci "242400893";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Salignacois"@fr .
+
+epci:epci_242400901 a cla:EPCI;
+  cla:codeEpci "242400901";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Ribéracois"@fr .
+
+epci:epci_242400919 a cla:EPCI;
+  cla:codeEpci "242400919";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Basse Vallée de l Isle"@fr .
+
+epci:epci_242400935 a cla:EPCI;
+  cla:codeEpci "242400935";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Saint Aulaye"@fr .
+
+epci:epci_242400943 a cla:EPCI;
+  cla:codeEpci "242400943";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays  Châtaignier"@fr .
+
+epci:epci_242400968 a cla:EPCI;
+  cla:codeEpci "242400968";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays Sarladais"@fr .
+
+epci:epci_242400992 a cla:EPCI;
+  cla:codeEpci "242400992";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Carluxais Terre de Fénelon"@fr .
+
+epci:epci_242401008 a cla:EPCI;
+  cla:codeEpci "242401008";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Terre de Cromagnon"@fr .
+
+epci:epci_242401016 a cla:EPCI;
+  cla:codeEpci "242401016";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Nauze et Bessède"@fr .
+
+epci:epci_242401024 a cla:EPCI;
+  cla:codeEpci "242401024";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Lanouaille"@fr .
+
+epci:epci_242401032 a cla:EPCI;
+  cla:codeEpci "242401032";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Périgord Vert Granitique"@fr .
+
+epci:epci_242401040 a cla:EPCI;
+  cla:codeEpci "242401040";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Brantomois"@fr .
+
+epci:epci_242401057 a cla:EPCI;
+  cla:codeEpci "242401057";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays Vernois"@fr .
+
+epci:epci_242401065 a cla:EPCI;
+  cla:codeEpci "242401065";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays Thibérien"@fr .
+
+epci:epci_242401073 a cla:EPCI;
+  cla:codeEpci "242401073";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Isle Manoire en Périgord"@fr .
+
+epci:epci_242401081 a cla:EPCI;
+  cla:codeEpci "242401081";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Les Villages Truffiers des Portes de Périgueux"@fr .
+
+epci:epci_242401099 a cla:EPCI;
+  cla:codeEpci "242401099";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Vallée de la Vezère"@fr .
+
+epci:epci_242401107 a cla:EPCI;
+  cla:codeEpci "242401107";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Pays de Villamblard"@fr .
+
+epci:epci_242401115 a cla:EPCI;
+  cla:codeEpci "242401115";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "CA Bergeracoise"@fr .
+
+epci:epci_242401123 a cla:EPCI;
+  cla:codeEpci "242401123";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Terroir de la Truffe"@fr .
+
+epci:epci_242401131 a cla:EPCI;
+  cla:codeEpci "242401131";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Dordogne Eyraud Lidoire"@fr .
+
+epci:epci_242401149 a cla:EPCI;
+  cla:codeEpci "242401149";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Val et Coteaux d Eymet"@fr .
+
+epci:epci_242401156 a cla:EPCI;
+  cla:codeEpci "242401156";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Gursonnais"@fr .
+
+epci:epci_242401172 a cla:EPCI;
+  cla:codeEpci "242401172";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Périgord Nontronnais"@fr .
+
+epci:epci_242401180 a cla:EPCI;
+  cla:codeEpci "242401180";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Bassin Lindois"@fr .
+
+epci:epci_242401198 a cla:EPCI;
+  cla:codeEpci "242401198";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Trois Vallées Bergeracois"@fr .
+
+epci:epci_242401206 a cla:EPCI;
+  cla:codeEpci "242401206";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Val de Dronne"@fr .
+
+epci:epci_242401214 a cla:EPCI;
+  cla:codeEpci "242401214";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Astérienne"@fr .
+
+epci:epci_242401222 a cla:EPCI;
+  cla:codeEpci "242401222";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Mussidanais en Périgord"@fr .
+
+epci:epci_242401230 a cla:EPCI;
+  cla:codeEpci "242401230";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Causse et Vézère"@fr .
+
+epci:epci_242401248 a cla:EPCI;
+  cla:codeEpci "242401248";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Entre Dordogne et Louyre"@fr .
+
+epci:epci_242401255 a cla:EPCI;
+  cla:codeEpci "242401255";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Côteaux de Sigoulès"@fr .
+
+epci:epci_242401271 a cla:EPCI;
+  cla:codeEpci "242401271";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Vallée du Salembre"@fr .
+
+epci:epci_242401289 a cla:EPCI;
+  cla:codeEpci "242401289";
+  cla:estUneSubdivisionDe dep:departement_24;
+  rdfs:label "Causses et Rivières en Périgord"@fr .
+
+epci:epci_243300316 a cla:EPCI;
+  cla:codeEpci "243300316";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Métropole de Bordeaux"@fr .
+
+epci:epci_243300563 a cla:EPCI;
+  cla:codeEpci "243300563";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CA du Bassin d Arcachon Sud COBAS"@fr .
+
+epci:epci_243300738 a cla:EPCI;
+  cla:codeEpci "243300738";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pointe du Médoc"@fr .
+
+epci:epci_243300795 a cla:EPCI;
+  cla:codeEpci "243300795";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Brannais"@fr .
+
+epci:epci_243300811 a cla:EPCI;
+  cla:codeEpci "243300811";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Estuaire - Canton de Saint Ciers sur Gironde"@fr .
+
+epci:epci_243300829 a cla:EPCI;
+  cla:codeEpci "243300829";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pays de Coutras"@fr .
+
+epci:epci_243300837 a cla:EPCI;
+  cla:codeEpci "243300837";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Centre Médoc"@fr .
+
+epci:epci_243300894 a cla:EPCI;
+  cla:codeEpci "243300894";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Canton de Bourg sur Gironde"@fr .
+
+epci:epci_243301116 a cla:EPCI;
+  cla:codeEpci "243301116";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pays de Pellegrue"@fr .
+
+epci:epci_243301124 a cla:EPCI;
+  cla:codeEpci "243301124";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Rurales de l'Entre-Deux-Mers"@fr .
+
+epci:epci_243301140 a cla:EPCI;
+  cla:codeEpci "243301140";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Blaye"@fr .
+
+epci:epci_243301165 a cla:EPCI;
+  cla:codeEpci "243301165";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Jalle-Eau-Bourde"@fr .
+
+epci:epci_243301173 a cla:EPCI;
+  cla:codeEpci "243301173";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Vallon de l Artolie"@fr .
+
+epci:epci_243301181 a cla:EPCI;
+  cla:codeEpci "243301181";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Latitude Nord Gironde"@fr .
+
+epci:epci_243301215 a cla:EPCI;
+  cla:codeEpci "243301215";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Créonnais"@fr .
+
+epci:epci_243301223 a cla:EPCI;
+  cla:codeEpci "243301223";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CC du Cubzaguais"@fr .
+
+epci:epci_243301231 a cla:EPCI;
+  cla:codeEpci "243301231";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Captieux Grignols"@fr .
+
+epci:epci_243301249 a cla:EPCI;
+  cla:codeEpci "243301249";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Secteur de Saint Loubes"@fr .
+
+epci:epci_243301256 a cla:EPCI;
+  cla:codeEpci "243301256";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Juridiction de Saint Émilion"@fr .
+
+epci:epci_243301264 a cla:EPCI;
+  cla:codeEpci "243301264";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CC de Montesquieu"@fr .
+
+epci:epci_243301272 a cla:EPCI;
+  cla:codeEpci "243301272";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Bazadais"@fr .
+
+epci:epci_243301280 a cla:EPCI;
+  cla:codeEpci "243301280";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Canton de Villandraut"@fr .
+
+epci:epci_243301298 a cla:EPCI;
+  cla:codeEpci "243301298";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Canton de Targon"@fr .
+
+epci:epci_243301306 a cla:EPCI;
+  cla:codeEpci "243301306";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pays Paroupian"@fr .
+
+epci:epci_243301314 a cla:EPCI;
+  cla:codeEpci "243301314";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CA du Libournais"@fr .
+
+epci:epci_243301322 a cla:EPCI;
+  cla:codeEpci "243301322";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Sud Libournais"@fr .
+
+epci:epci_243301330 a cla:EPCI;
+  cla:codeEpci "243301330";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Canton de Guitres"@fr .
+
+epci:epci_243301355 a cla:EPCI;
+  cla:codeEpci "243301355";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Coteaux Bordelais"@fr .
+
+epci:epci_243301371 a cla:EPCI;
+  cla:codeEpci "243301371";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CC du Pays Foyen"@fr .
+
+epci:epci_243301389 a cla:EPCI;
+  cla:codeEpci "243301389";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Médullienne"@fr .
+
+epci:epci_243301397 a cla:EPCI;
+  cla:codeEpci "243301397";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Fronsadais"@fr .
+
+epci:epci_243301405 a cla:EPCI;
+  cla:codeEpci "243301405";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Val de L'Eyre"@fr .
+
+epci:epci_243301413 a cla:EPCI;
+  cla:codeEpci "243301413";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Lacs Médocains"@fr .
+
+epci:epci_243301421 a cla:EPCI;
+  cla:codeEpci "243301421";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Coeur de Médoc"@fr .
+
+epci:epci_243301439 a cla:EPCI;
+  cla:codeEpci "243301439";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Portes de l'Entre Deux Mers"@fr .
+
+epci:epci_243301447 a cla:EPCI;
+  cla:codeEpci "243301447";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Médoc Estuaire"@fr .
+
+epci:epci_243301454 a cla:EPCI;
+  cla:codeEpci "243301454";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Castillon Pujols"@fr .
+
+epci:epci_243301462 a cla:EPCI;
+  cla:codeEpci "243301462";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Coteaux Macariens"@fr .
+
+epci:epci_243301470 a cla:EPCI;
+  cla:codeEpci "243301470";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Coteaux de Garonne"@fr .
+
+epci:epci_243301488 a cla:EPCI;
+  cla:codeEpci "243301488";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pays de Langon"@fr .
+
+epci:epci_243301504 a cla:EPCI;
+  cla:codeEpci "243301504";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "CC du Bassin d'Arcachon Nord Atlantique COBAN"@fr .
+
+epci:epci_243301512 a cla:EPCI;
+  cla:codeEpci "243301512";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Réolais en Sud Gironde"@fr .
+
+epci:epci_243301520 a cla:EPCI;
+  cla:codeEpci "243301520";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Pays d'Auros"@fr .
+
+epci:epci_243301538 a cla:EPCI;
+  cla:codeEpci "243301538";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Podensac, des Coteaux de Garonne, de Lestiac"@fr .
+
+epci:epci_243301546 a cla:EPCI;
+  cla:codeEpci "243301546";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Monségurais"@fr .
+
+epci:epci_243301553 a cla:EPCI;
+  cla:codeEpci "243301553";
+  cla:estUneSubdivisionDe dep:departement_33;
+  rdfs:label "Lussacais"@fr .
+
+epci:epci_244000543 a cla:EPCI;
+  cla:codeEpci "244000543";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Mimizan"@fr .
+
+epci:epci_244000576 a cla:EPCI;
+  cla:codeEpci "244000576";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Aire sur l'Adour"@fr .
+
+epci:epci_244000592 a cla:EPCI;
+  cla:codeEpci "244000592";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Tursan"@fr .
+
+epci:epci_244000642 a cla:EPCI;
+  cla:codeEpci "244000642";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Canton de Pissos"@fr .
+
+epci:epci_244000659 a cla:EPCI;
+  cla:codeEpci "244000659";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Seignanx"@fr .
+
+epci:epci_244000667 a cla:EPCI;
+  cla:codeEpci "244000667";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays d'Orthe"@fr .
+
+epci:epci_244000675 a cla:EPCI;
+  cla:codeEpci "244000675";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "CA du Grand Dax"@fr .
+
+epci:epci_244000691 a cla:EPCI;
+  cla:codeEpci "244000691";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays Morcenais"@fr .
+
+epci:epci_244000709 a cla:EPCI;
+  cla:codeEpci "244000709";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Chalosse Tursan"@fr .
+
+epci:epci_244000717 a cla:EPCI;
+  cla:codeEpci "244000717";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Canton de Mugron"@fr .
+
+epci:epci_244000741 a cla:EPCI;
+  cla:codeEpci "244000741";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Terres de Chalosse"@fr .
+
+epci:epci_244000758 a cla:EPCI;
+  cla:codeEpci "244000758";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays d Albret"@fr .
+
+epci:epci_244000766 a cla:EPCI;
+  cla:codeEpci "244000766";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays Tarusate"@fr .
+
+epci:epci_244000774 a cla:EPCI;
+  cla:codeEpci "244000774";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays de Villeneuve de Marsan en Armagnac"@fr .
+
+epci:epci_244000782 a cla:EPCI;
+  cla:codeEpci "244000782";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Haute Lande"@fr .
+
+epci:epci_244000790 a cla:EPCI;
+  cla:codeEpci "244000790";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays de Roquefort"@fr .
+
+epci:epci_244000808 a cla:EPCI;
+  cla:codeEpci "244000808";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "CA Mont-de-Marsan Agglomération"@fr .
+
+epci:epci_244000816 a cla:EPCI;
+  cla:codeEpci "244000816";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pouillon"@fr .
+
+epci:epci_244000824 a cla:EPCI;
+  cla:codeEpci "244000824";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Pays Grenadois"@fr .
+
+epci:epci_244000832 a cla:EPCI;
+  cla:codeEpci "244000832";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Cap de Gascogne"@fr .
+
+epci:epci_244000840 a cla:EPCI;
+  cla:codeEpci "244000840";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Gabardan"@fr .
+
+epci:epci_244000857 a cla:EPCI;
+  cla:codeEpci "244000857";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Côte Landes Nature"@fr .
+
+epci:epci_244000865 a cla:EPCI;
+  cla:codeEpci "244000865";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Maremne Adour Côte Sud"@fr .
+
+epci:epci_244000873 a cla:EPCI;
+  cla:codeEpci "244000873";
+  cla:estUneSubdivisionDe dep:departement_40;
+  rdfs:label "Grands Lacs"@fr .
+
+epci:epci_244700431 a cla:EPCI;
+  cla:codeEpci "244700431";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Fumélois"@fr .
+
+epci:epci_244700449 a cla:EPCI;
+  cla:codeEpci "244700449";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Pays de ras"@fr .
+
+epci:epci_244700464 a cla:EPCI;
+  cla:codeEpci "244700464";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Pays de Lauzun"@fr .
+
+epci:epci_244700472 a cla:EPCI;
+  cla:codeEpci "244700472";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Deux Séounes"@fr .
+
+epci:epci_244700498 a cla:EPCI;
+  cla:codeEpci "244700498";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Coteaux de l'Albret"@fr .
+
+epci:epci_244700506 a cla:EPCI;
+  cla:codeEpci "244700506";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Val d Albret"@fr .
+
+epci:epci_244700514 a cla:EPCI;
+  cla:codeEpci "244700514";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Coteaux de Beauville"@fr .
+
+epci:epci_244700522 a cla:EPCI;
+  cla:codeEpci "244700522";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "CA du Val de Garonne"@fr .
+
+epci:epci_244700530 a cla:EPCI;
+  cla:codeEpci "244700530";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Pays Villeréalais"@fr .
+
+epci:epci_244701355 a cla:EPCI;
+  cla:codeEpci "244701355";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Coteaux et des Landes de Gascogne"@fr .
+
+epci:epci_244701363 a cla:EPCI;
+  cla:codeEpci "244701363";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Pays du Trec et de la Gupie"@fr .
+
+epci:epci_244701371 a cla:EPCI;
+  cla:codeEpci "244701371";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Bastide et Châteaux en Guyenne"@fr .
+
+epci:epci_244701389 a cla:EPCI;
+  cla:codeEpci "244701389";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Penne d Agenais"@fr .
+
+epci:epci_244701397 a cla:EPCI;
+  cla:codeEpci "244701397";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Tournonnais"@fr .
+
+epci:epci_244701405 a cla:EPCI;
+  cla:codeEpci "244701405";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Lot et Tolzac"@fr .
+
+epci:epci_244701421 a cla:EPCI;
+  cla:codeEpci "244701421";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Agen"@fr .
+
+epci:epci_244701439 a cla:EPCI;
+  cla:codeEpci "244701439";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Canton de Prayssas"@fr .
+
+epci:epci_244701447 a cla:EPCI;
+  cla:codeEpci "244701447";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Canton de Laplume en Bruilhois"@fr .
+
+epci:epci_244701454 a cla:EPCI;
+  cla:codeEpci "244701454";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "CA du Grand Villeneuvois"@fr .
+
+epci:epci_244701462 a cla:EPCI;
+  cla:codeEpci "244701462";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Confluent"@fr .
+
+epci:epci_244701470 a cla:EPCI;
+  cla:codeEpci "244701470";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Basse Vallée du Lot"@fr .
+
+epci:epci_244701488 a cla:EPCI;
+  cla:codeEpci "244701488";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Astaffort en Bruilhois"@fr .
+
+epci:epci_244701496 a cla:EPCI;
+  cla:codeEpci "244701496";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Mézinais"@fr .
+
+epci:epci_244701512 a cla:EPCI;
+  cla:codeEpci "244701512";
+  cla:estUneSubdivisionDe dep:departement_47;
+  rdfs:label "Roquentin"@fr .
+
+epci:epci_246400014 a cla:EPCI;
+  cla:codeEpci "246400014";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton de Garlin"@fr .
+
+epci:epci_246400022 a cla:EPCI;
+  cla:codeEpci "246400022";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Lacq"@fr .
+
+epci:epci_246400030 a cla:EPCI;
+  cla:codeEpci "246400030";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "CA du Pays Basque"@fr .
+
+epci:epci_246400410 a cla:EPCI;
+  cla:codeEpci "246400410";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Luy de Béarn"@fr .
+
+epci:epci_246401459 a cla:EPCI;
+  cla:codeEpci "246401459";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Vallée de Barétous"@fr .
+
+epci:epci_246401517 a cla:EPCI;
+  cla:codeEpci "246401517";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "des Luys, Gabas, Souye et Lees"@fr .
+
+epci:epci_246401525 a cla:EPCI;
+  cla:codeEpci "246401525";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Gave et Coteaux"@fr .
+
+epci:epci_246401533 a cla:EPCI;
+  cla:codeEpci "246401533";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Josbaig"@fr .
+
+epci:epci_246401541 a cla:EPCI;
+  cla:codeEpci "246401541";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Bidache"@fr .
+
+epci:epci_246401574 a cla:EPCI;
+  cla:codeEpci "246401574";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton d'Arzacq"@fr .
+
+epci:epci_246401582 a cla:EPCI;
+  cla:codeEpci "246401582";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton de Monein"@fr .
+
+epci:epci_246401590 a cla:EPCI;
+  cla:codeEpci "246401590";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton de Navarrenx"@fr .
+
+epci:epci_246401616 a cla:EPCI;
+  cla:codeEpci "246401616";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Amikuze"@fr .
+
+epci:epci_246401624 a cla:EPCI;
+  cla:codeEpci "246401624";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Vallée d'Aspe"@fr .
+
+epci:epci_246401632 a cla:EPCI;
+  cla:codeEpci "246401632";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton de Lembeye en Vic Bilh"@fr .
+
+epci:epci_246401640 a cla:EPCI;
+  cla:codeEpci "246401640";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Lagor"@fr .
+
+epci:epci_246401657 a cla:EPCI;
+  cla:codeEpci "246401657";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Pays d'Hasparren"@fr .
+
+epci:epci_246401665 a cla:EPCI;
+  cla:codeEpci "246401665";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Salies de Béarn"@fr .
+
+epci:epci_246401673 a cla:EPCI;
+  cla:codeEpci "246401673";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Arthez de Béarn"@fr .
+
+epci:epci_246401681 a cla:EPCI;
+  cla:codeEpci "246401681";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton d'Orthez"@fr .
+
+epci:epci_246401699 a cla:EPCI;
+  cla:codeEpci "246401699";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Sauveterre de Béarn"@fr .
+
+epci:epci_246401707 a cla:EPCI;
+  cla:codeEpci "246401707";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Canton de Thèze"@fr .
+
+epci:epci_246401715 a cla:EPCI;
+  cla:codeEpci "246401715";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Miey de Béarn"@fr .
+
+epci:epci_246401723 a cla:EPCI;
+  cla:codeEpci "246401723";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Pau - Pyrénées"@fr .
+
+epci:epci_246401756 a cla:EPCI;
+  cla:codeEpci "246401756";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Vath Vielha"@fr .
+
+epci:epci_246401764 a cla:EPCI;
+  cla:codeEpci "246401764";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Pays de Soule - Xiberoa"@fr .
+
+epci:epci_246401798 a cla:EPCI;
+  cla:codeEpci "246401798";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Ousse Gabas"@fr .
+
+epci:epci_246401814 a cla:EPCI;
+  cla:codeEpci "246401814";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Piémont Oloronais"@fr .
+
+epci:epci_246401822 a cla:EPCI;
+  cla:codeEpci "246401822";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Garazi Baigorri"@fr .
+
+epci:epci_246401855 a cla:EPCI;
+  cla:codeEpci "246401855";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "Nive-Adour"@fr .
+
+epci:epci_246401863 a cla:EPCI;
+  cla:codeEpci "246401863";
+  cla:estUneSubdivisionDe dep:departement_64;
+  rdfs:label "d'Iholdi-Ostibarre"@fr .

@@ -64,6 +64,15 @@ lazy val root = (project in file("."))
       scalaTest % Test,
       akkaStreamTestkit % Test,
       logbackClassic,
+      jodaTime,
+      typesafeConfig,
+      playJson,
+      playWs,
+      playWSAhc,
+      scalaLogging,
+      jenaLibs,
+      alpakkaAmqp,
+      akkaSlf4j,
       amqpLib
     ),
     imageNames in docker := Seq(

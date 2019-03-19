@@ -16,12 +16,10 @@
   */
 package fr.sictiam.hdd
 
-import java.util.concurrent.Executors
-
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import fr.sictiam.amqp.api.AmqpClientConfiguration
-import fr.sictiam.amqp.api.controllers.AmqpController
+import fr.sictiam.amqp.api.rpc.AmqpRpcController
 import fr.sictiam.hdd.tasks.{GraphCreateTask, GraphDeleteTask, GraphReadTask, GraphUpdateTask}
 
 import scala.concurrent.ExecutionContext
@@ -34,21 +32,13 @@ object GraphController extends App {
 
   implicit val system = ActorSystem("GraphControllerSystem")
   implicit val materializer = ActorMaterializer()
-  implicit val ec: ExecutionContext = new ExecutionContext {
-    val threadPool = Executors.newFixedThreadPool(10)
+  implicit val ec: ExecutionContext = system.dispatcher
 
-    def execute(runnable: Runnable) {
-      threadPool.submit(runnable)
-    }
-
-    def reportFailure(t: Throwable) {}
-  }
-
-  val controller = new AmqpController(AmqpClientConfiguration.exchangeName, "Graph Controller")
-  controller.registerTask("graph.create", new GraphCreateTask)
-  controller.registerTask("graph.read", new GraphReadTask)
-  controller.registerTask("graph.update", new GraphUpdateTask)
-  controller.registerTask("graph.delete", new GraphDeleteTask)
+  val controller = new AmqpRpcController("Graph Controller")
+  controller.registerTask("graph.create.triples", new GraphCreateTask("graph.create.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.read.triples", new GraphReadTask("graph.read.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.update.triples", new GraphUpdateTask("graph.update.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.delete.triples", new GraphDeleteTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
 
   controller.start
 

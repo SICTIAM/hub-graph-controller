@@ -1,20 +1,18 @@
 # Graph Controller for HDD project (SICTIAM)
-
-Inside a SBT shell 
-
+ 
 ###Build the source code
 ```bash
-sbt:hub-graph-controller>;clean;reload;update;compile 
+sbt clean reload update compile 
 ```
 
 ###Package the fat JAR required by sbt-docker plugin 
 ```bash
-sbt:hub-graph-controller>assembly 
+sbt assembly 
 ```
 
 ###Build the docker image 
 ```bash
-sbt:hub-graph-controller>docker 
+sbt docker 
 ```
 
 ###Run image 
@@ -27,5 +25,12 @@ export RABBITMQ_DURABLE_MESSAGES=true
 export RABBITMQ_TIMEOUT=10000
 export RABBITMQ_EXCHANGE_NAME="hdd_exchange"
 
-docker run sictiam/hub-graph-controller:0.1.0-SNAPSHOT 
+export RDFSTORE_USER="admin"
+export RDFSTORE_PWD="Pa55w0rd"
+export RDFSTORE_ROOT_URI="http://localhost:32768/repositories"
+export RDFSTORE_REPOSITORY_NAME="hdd"
+export RDFSTORE_READ_ENDPOINT=""
+export RDFSTORE_WRITE_ENDPOINT="statements"
+
+docker run sictiam/hub-graph-controller:0.1.1-SNAPSHOT 
 ```

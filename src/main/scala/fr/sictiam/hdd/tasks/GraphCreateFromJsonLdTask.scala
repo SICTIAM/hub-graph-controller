@@ -23,7 +23,7 @@ import akka.util.ByteString
 import fr.sictiam.amqp.api.AmqpMessage
 import fr.sictiam.amqp.api.rpc.AmqpRpcTask
 import fr.sictiam.hdd.rdf.RDFClient
-import play.api.libs.json.{JsBoolean, JsNumber, JsString, Json}
+import play.api.libs.json._
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -33,13 +33,13 @@ import scala.util.{Failure, Success, Try}
   * Date: 2019-03-12
   */
 
-class GraphCreateTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+class GraphCreateFromJsonLdTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
 
   override def onMessage(msg: IncomingMessage, params: String*)(implicit ec: ExecutionContext): Future[OutgoingMessage] = {
     Json.parse(msg.bytes.utf8String).validate[AmqpMessage].isSuccess match {
       case true => {
-        val qry = Json.parse(msg.bytes.utf8String).as[AmqpMessage].body.as[String]
-        val future = RDFClient.update(qry)
+        val body = Json.parse(msg.bytes.utf8String).as[AmqpMessage].body
+        val future = RDFClient.create(body)
         future.transform {
           case Success(_) => Try {
             val head = Map(

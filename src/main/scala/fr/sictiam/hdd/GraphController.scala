@@ -22,8 +22,8 @@ import fr.sictiam.amqp.api.AmqpClientConfiguration
 import fr.sictiam.amqp.api.rpc.AmqpRpcController
 import fr.sictiam.hdd.tasks._
 
-import scala.concurrent.ExecutionContext
-
+import scala.concurrent.duration._
+import scala.concurrent.{Await, ExecutionContext}
 /**
   * Created by Nicolas DELAFORGE (nicolas.delaforge@mnemotix.com).
   * Date: 2019-03-12
@@ -43,6 +43,6 @@ object GraphController extends App {
   controller.start
 
   sys addShutdownHook {
-    controller.shutdown
+    Await.result(controller.shutdown, Duration.Inf)
   }
 }

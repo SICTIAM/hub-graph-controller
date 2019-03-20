@@ -19,7 +19,6 @@ package fr.sictiam.hdd.tasks
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.stream.alpakka.amqp.{IncomingMessage, OutgoingMessage}
-import akka.util.ByteString
 import fr.sictiam.amqp.api.AmqpMessage
 import fr.sictiam.amqp.api.rpc.AmqpRpcTask
 import fr.sictiam.hdd.rdf.RDFClient
@@ -52,7 +51,7 @@ class GraphUpdateTask(override val topic: String, override val exchangeName: Str
               "status" -> JsString("OK")
             )
             val body = JsBoolean(true)
-            OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false)
+            AmqpMessage(head, body).toOutgoingMessage()
           }
           case Failure(err) => Try {
             val head = Map(
@@ -66,7 +65,7 @@ class GraphUpdateTask(override val topic: String, override val exchangeName: Str
               "errorClass" -> JsString(err.getCause.getClass.getSimpleName),
               "errorMessage" -> JsString(err.getMessage)
             )
-            OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false)
+            AmqpMessage(head, body).toOutgoingMessage()
           }
         }
       }
@@ -83,7 +82,7 @@ class GraphUpdateTask(override val topic: String, override val exchangeName: Str
           "errorClass" -> JsString("MessageParsingException"),
           "errorMessage" -> JsString(s"Unable to parse the message: ${msg.bytes.utf8String}")
         )
-        Future(OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false))
+        Future(AmqpMessage(head, body).toOutgoingMessage())
       }
     }
   }

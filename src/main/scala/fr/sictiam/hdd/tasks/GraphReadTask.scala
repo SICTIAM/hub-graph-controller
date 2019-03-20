@@ -21,7 +21,6 @@ import java.io.ByteArrayOutputStream
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.stream.alpakka.amqp.{IncomingMessage, OutgoingMessage}
-import akka.util.ByteString
 import fr.sictiam.amqp.api.AmqpMessage
 import fr.sictiam.amqp.api.rpc.AmqpRpcTask
 import fr.sictiam.hdd.rdf.RDFClient
@@ -57,7 +56,7 @@ class GraphReadTask(override val topic: String, override val exchangeName: Strin
             RDFDataMgr.write(os, rs.getResourceModel, RDFFormat.JSONLD)
             val body = Json.parse(os.toByteArray)
             os.close()
-            OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false)
+            AmqpMessage(head, body).toOutgoingMessage()
           }
           case Failure(err) => Try {
             val head = Map(
@@ -72,7 +71,7 @@ class GraphReadTask(override val topic: String, override val exchangeName: Strin
               "errorClass" -> JsString(err.getCause.getClass.getSimpleName),
               "errorMessage" -> JsString(err.getMessage)
             )
-            OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false)
+            AmqpMessage(head, body).toOutgoingMessage()
           }
         }
       }
@@ -89,7 +88,7 @@ class GraphReadTask(override val topic: String, override val exchangeName: Strin
           "errorClass" -> JsString("MessageParsingException"),
           "errorMessage" -> JsString(s"Unable to parse the message: ${msg.bytes.utf8String}")
         )
-        Future(OutgoingMessage(ByteString(AmqpMessage(head, body).toString()), false, false))
+        Future(AmqpMessage(head, body).toOutgoingMessage())
       }
     }
   }

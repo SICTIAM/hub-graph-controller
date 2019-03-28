@@ -14,9 +14,7 @@
   * See the License for the specific language governing permissions and
   * limitations under the License.
   */
-package fr.sictiam.hdd.tasks
-
-import java.io.ByteArrayOutputStream
+package fr.sictiam.hdd.tasks.update
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
@@ -24,9 +22,7 @@ import akka.stream.alpakka.amqp.{IncomingMessage, OutgoingMessage}
 import fr.sictiam.amqp.api.AmqpMessage
 import fr.sictiam.amqp.api.rpc.AmqpRpcTask
 import fr.sictiam.hdd.rdf.RDFClient
-import org.apache.jena.query.ResultSet
-import org.apache.jena.riot.{RDFDataMgr, RDFFormat}
-import play.api.libs.json.{JsNumber, JsString, Json}
+import play.api.libs.json.{JsBoolean, JsNumber, JsString, Json}
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -36,27 +32,26 @@ import scala.util.{Failure, Success, Try}
   * Date: 2019-03-12
   */
 
-class GraphReadTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+class GraphUpdateFromQueryTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+
 
   override def onMessage(msg: IncomingMessage, params: String*)(implicit ec: ExecutionContext): Future[OutgoingMessage] = {
+    logger.debug(s"Message received : \n${Json.prettyPrint(Json.parse(msg.bytes.utf8String))}")
     Json.parse(msg.bytes.utf8String).validate[AmqpMessage].isSuccess match {
       case true => {
         val qry = Json.parse(msg.bytes.utf8String).as[AmqpMessage].body.as[String]
-        val future = RDFClient.select(qry)
+        val future = RDFClient.update(qry)
         future.transform {
-          case Success(rs: ResultSet) => Try {
+          case Success(_) => Try {
             val head = Map(
               "command" -> JsString(topic),
               "sender" -> JsString(""),
               "timestamp" -> JsNumber(System.currentTimeMillis()),
-              "format" -> JsString("JSON-LD"),
+              "format" -> JsString("JSON"),
               "status" -> JsString("OK")
             )
-            val os: ByteArrayOutputStream = new ByteArrayOutputStream()
-            RDFDataMgr.write(os, rs.getResourceModel, RDFFormat.JSONLD)
-            val body = Json.parse(os.toByteArray)
-            os.close()
-            AmqpMessage(head, body).toOutgoingMessage()
+            val body = JsBoolean(true)
+            AmqpMessage(head, body).toOutgoingMessage(msg.properties)
           }
           case Failure(err) => Try {
             val head = Map(
@@ -66,12 +61,11 @@ class GraphReadTask(override val topic: String, override val exchangeName: Strin
               "format" -> JsString("JSON"),
               "status" -> JsString("ERROR")
             )
-
             val body = Json.obj(
               "errorClass" -> JsString(err.getCause.getClass.getSimpleName),
               "errorMessage" -> JsString(err.getMessage)
             )
-            AmqpMessage(head, body).toOutgoingMessage()
+            AmqpMessage(head, body).toOutgoingMessage(msg.properties)
           }
         }
       }
@@ -88,9 +82,8 @@ class GraphReadTask(override val topic: String, override val exchangeName: Strin
           "errorClass" -> JsString("MessageParsingException"),
           "errorMessage" -> JsString(s"Unable to parse the message: ${msg.bytes.utf8String}")
         )
-        Future(AmqpMessage(head, body).toOutgoingMessage())
+        Future(AmqpMessage(head, body).toOutgoingMessage(msg.properties))
       }
     }
   }
-
 }

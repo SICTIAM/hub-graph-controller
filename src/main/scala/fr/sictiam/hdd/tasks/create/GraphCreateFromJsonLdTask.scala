@@ -14,7 +14,7 @@
   * See the License for the specific language governing permissions and
   * limitations under the License.
   */
-package fr.sictiam.hdd.tasks
+package fr.sictiam.hdd.tasks.create
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
@@ -22,7 +22,7 @@ import akka.stream.alpakka.amqp.{IncomingMessage, OutgoingMessage}
 import fr.sictiam.amqp.api.AmqpMessage
 import fr.sictiam.amqp.api.rpc.AmqpRpcTask
 import fr.sictiam.hdd.rdf.RDFClient
-import play.api.libs.json.{JsBoolean, JsNumber, JsString, Json}
+import play.api.libs.json._
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -32,13 +32,15 @@ import scala.util.{Failure, Success, Try}
   * Date: 2019-03-12
   */
 
-class GraphCreateFromQueryTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+class GraphCreateFromJsonLdTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
 
   override def onMessage(msg: IncomingMessage, params: String*)(implicit ec: ExecutionContext): Future[OutgoingMessage] = {
+    logger.debug(s"Message received : \n${Json.prettyPrint(Json.parse(msg.bytes.utf8String))}")
+    logger.debug(s"ReplyTo : ${msg.properties.getReplyTo}/${msg.properties.getCorrelationId}")
     Json.parse(msg.bytes.utf8String).validate[AmqpMessage].isSuccess match {
       case true => {
-        val qry = Json.parse(msg.bytes.utf8String).as[AmqpMessage].body.as[String]
-        val future = RDFClient.update(qry)
+        val body = Json.parse(msg.bytes.utf8String).as[AmqpMessage].body
+        val future = RDFClient.create(body)
         future.transform {
           case Success(_) => Try {
             val head = Map(
@@ -49,7 +51,7 @@ class GraphCreateFromQueryTask(override val topic: String, override val exchange
               "status" -> JsString("OK")
             )
             val body = JsBoolean(true)
-            AmqpMessage(head, body).toOutgoingMessage()
+            AmqpMessage(head, body).toOutgoingMessage(msg.properties)
           }
           case Failure(err) => Try {
             val head = Map(
@@ -63,7 +65,7 @@ class GraphCreateFromQueryTask(override val topic: String, override val exchange
               "errorClass" -> JsString(err.getCause.getClass.getSimpleName),
               "errorMessage" -> JsString(err.getMessage)
             )
-            AmqpMessage(head, body).toOutgoingMessage()
+            AmqpMessage(head, body).toOutgoingMessage(msg.properties)
           }
         }
       }
@@ -80,7 +82,7 @@ class GraphCreateFromQueryTask(override val topic: String, override val exchange
           "errorClass" -> JsString("MessageParsingException"),
           "errorMessage" -> JsString(s"Unable to parse the message: ${msg.bytes.utf8String}")
         )
-        Future(AmqpMessage(head, body).toOutgoingMessage())
+        Future(AmqpMessage(head, body).toOutgoingMessage(msg.properties))
       }
     }
   }

@@ -19,7 +19,7 @@ package fr.sictiam.tasks
 import fr.sictiam.AmqpSpec
 import fr.sictiam.amqp.api.{AmqpClientConfiguration, AmqpMessage}
 import fr.sictiam.hdd.rdf.RDFClient
-import fr.sictiam.hdd.tasks.GraphCreateFromJsonLdTask
+import fr.sictiam.hdd.tasks.create.GraphCreateFromJsonLdTask
 import play.api.libs.json.Json
 
 import scala.concurrent.Await

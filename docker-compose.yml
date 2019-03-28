@@ -1,0 +1,31 @@
+version: '3'
+
+#volumes:
+#  postgres_data:
+#    driver: local
+#  rabbitmq_data:
+#    driver: local
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "Pa55w0rd"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    #    volumes:
+    #      - rabbitmq_data:/var/lib/rabbitmq/
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  graphdb:
+    image: dhlabbasel/graphdb-free:latest
+    #    image: sictiam/graphdb:8.8.0-free
+    container_name: graphdb
+    volumes:
+      - /Users/nico/data/graphdb/data:/opt/graphdb/home/data/
+    ports:
+      - "7200:7200"

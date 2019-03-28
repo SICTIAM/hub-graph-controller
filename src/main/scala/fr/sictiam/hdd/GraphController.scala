@@ -20,7 +20,10 @@ import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import fr.sictiam.amqp.api.AmqpClientConfiguration
 import fr.sictiam.amqp.api.rpc.AmqpRpcController
-import fr.sictiam.hdd.tasks._
+import fr.sictiam.hdd.tasks.create.GraphCreateFromJsonLdTask
+import fr.sictiam.hdd.tasks.delete.GraphDeleteFromQueryTask
+import fr.sictiam.hdd.tasks.read._
+import fr.sictiam.hdd.tasks.update.GraphUpdateFromQueryTask
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, ExecutionContext}
@@ -35,10 +38,14 @@ object GraphController extends App {
   implicit val ec: ExecutionContext = system.dispatcher
 
   val controller = new AmqpRpcController("Graph Controller")
+
   controller.registerTask("graph.create.triples", new GraphCreateFromJsonLdTask("graph.create.triples", AmqpClientConfiguration.exchangeName))
-  controller.registerTask("graph.read.triples", new GraphReadTask("graph.read.triples", AmqpClientConfiguration.exchangeName))
-  controller.registerTask("graph.update.triples", new GraphUpdateTask("graph.update.triples", AmqpClientConfiguration.exchangeName))
-  controller.registerTask("graph.delete.triples", new GraphDeleteTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.select", new GraphSelectTask("graph.select", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.construct", new GraphConstructTask("graph.construct", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.ask", new GraphAskTask("graph.ask", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.describe", new GraphDescribeTask("graph.describe", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.update.triples", new GraphUpdateFromQueryTask("graph.update.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.delete.triples", new GraphDeleteFromQueryTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
 
   controller.start
 

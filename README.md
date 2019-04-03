@@ -15,7 +15,8 @@ sbt assembly
 sbt docker 
 ```
 
-###Run image 
+###Run image
+
 ```bash
 export RABBITMQ_USER="admin"
 export RABBITMQ_PWD="Pa55w0rd"

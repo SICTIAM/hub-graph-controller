@@ -20,13 +20,15 @@ import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import fr.sictiam.amqp.api.AmqpClientConfiguration
 import fr.sictiam.amqp.api.rpc.AmqpRpcController
-import fr.sictiam.hdd.tasks.create.GraphCreateFromJsonLdTask
-import fr.sictiam.hdd.tasks.delete.GraphDeleteFromQueryTask
+import fr.sictiam.hdd.rdf.RDFClient
+import fr.sictiam.hdd.tasks.create.{GraphCreateFromJsonLdTask, GraphCreateFromQueryTask}
+import fr.sictiam.hdd.tasks.delete.GraphDeleteTask
 import fr.sictiam.hdd.tasks.read._
-import fr.sictiam.hdd.tasks.update.GraphUpdateFromQueryTask
+import fr.sictiam.hdd.tasks.update.GraphUpdateTask
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, ExecutionContext}
+import scala.util.{Failure, Success}
 /**
   * Created by Nicolas DELAFORGE (nicolas.delaforge@mnemotix.com).
   * Date: 2019-03-12
@@ -39,15 +41,23 @@ object GraphController extends App {
 
   val controller = new AmqpRpcController("Graph Controller")
 
+  RDFClient.init()
+
   controller.registerTask("graph.create.triples", new GraphCreateFromJsonLdTask("graph.create.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.insert.triples", new GraphCreateFromQueryTask("graph.insert.triples", AmqpClientConfiguration.exchangeName))
   controller.registerTask("graph.select", new GraphSelectTask("graph.select", AmqpClientConfiguration.exchangeName))
   controller.registerTask("graph.construct", new GraphConstructTask("graph.construct", AmqpClientConfiguration.exchangeName))
   controller.registerTask("graph.ask", new GraphAskTask("graph.ask", AmqpClientConfiguration.exchangeName))
   controller.registerTask("graph.describe", new GraphDescribeTask("graph.describe", AmqpClientConfiguration.exchangeName))
-  controller.registerTask("graph.update.triples", new GraphUpdateFromQueryTask("graph.update.triples", AmqpClientConfiguration.exchangeName))
-  controller.registerTask("graph.delete.triples", new GraphDeleteFromQueryTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.update.triples", new GraphUpdateTask("graph.update.triples", AmqpClientConfiguration.exchangeName))
+  controller.registerTask("graph.delete.triples", new GraphDeleteTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
 
-  controller.start
+  val starting = controller.start
+  starting onComplete {
+    case Success(_) =>
+    case Failure(_) => sys.exit(1)
+  }
+
 
   sys addShutdownHook {
     Await.result(controller.shutdown, Duration.Inf)

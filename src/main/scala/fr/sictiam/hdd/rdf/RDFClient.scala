@@ -20,9 +20,10 @@ import java.io.StringReader
 
 import com.typesafe.scalalogging.LazyLogging
 import fr.sictiam.hdd.exceptions._
-import org.apache.jena.rdf.model.{Model, ModelFactory, StmtIterator}
+import org.apache.jena.rdf.model.{Model, ModelFactory}
 import org.apache.jena.rdfconnection.RDFConnectionFactory
 import org.apache.jena.riot.RiotException
+import org.apache.jena.sys.JenaSystem
 import org.apache.jena.system.Txn
 import play.api.libs.json.{JsValue, Json}
 
@@ -34,6 +35,11 @@ import scala.util.{Failure, Success}
   * Date: 2019-03-19
   */
 object RDFClient extends LazyLogging {
+
+  def init() = {
+    org.apache.jena.query.ARQ.init()
+    JenaSystem.init()
+  }
 
   def load(file: String)(implicit ec: ExecutionContext) = {
     val future = Future {
@@ -88,7 +94,7 @@ object RDFClient extends LazyLogging {
       rs
     }
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => logger.info("The query was executed successfully.")
       case Failure(err) => {
         logger.error("The RDF client failed to execute the query.", err)
         throw new RDFSelectException("The RDF client failed to execute the query.", err)
@@ -106,7 +112,7 @@ object RDFClient extends LazyLogging {
     }
 
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => logger.info("The query was executed successfully.")
       case Failure(err) => {
         logger.error("The RDF client failed to execute the query.", err)
         throw new RDFConstructException("The RDF client failed to execute the query.", err)
@@ -124,7 +130,7 @@ object RDFClient extends LazyLogging {
     }
 
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => logger.info("The query was executed successfully.")
       case Failure(err) => {
         logger.error("The RDF client failed to execute the query.", err)
         throw new RDFConstructException("The RDF client failed to execute the query.", err)
@@ -141,42 +147,10 @@ object RDFClient extends LazyLogging {
       answer
     }
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => logger.info("The query was executed successfully.")
       case Failure(err) => {
         logger.error("The RDF client failed to execute the query.", err)
         throw new RDFAskException("The RDF client failed to execute the query.", err)
-      }
-    }
-    future
-  }
-
-  def update(jsonld: JsValue)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val reader = new StringReader(Json.stringify(jsonld))
-      val m: Model = ModelFactory.createDefaultModel
-      try {
-        m.read(reader, null, "JSON-LD")
-        val conn = getWriteConnection()
-        val it: StmtIterator = m.listStatements
-        while (it.hasNext) {
-          val stmt = it.next
-          // do your stuff with the Statement (which is a triple)
-        }
-        //        Txn.executeWrite(conn, () => {
-        //          conn.load(m)
-        //        })
-        conn.close()
-      } catch {
-        case e: RiotException => throw new MessageParsingException("Unable to parse the message body. Well formed JSON-LD string is expected.", e)
-      }
-      finally if (reader != null) reader.close()
-    }
-    //        RDFParser.create.source(sr).lang(RDFLanguages.JSONLD).errorHandler(ErrorHandlerFactory.errorHandlerStrict).base(RDFParserConfiguration.baseUri).parse(model)
-    future onComplete {
-      case Success(_) => logger.info("The data was loaded successfully.")
-      case Failure(err) => {
-        logger.error("The store failed to load the data.", err)
-        throw new RDFLoadException("The store failed to load the data.", err)
       }
     }
     future
@@ -191,8 +165,8 @@ object RDFClient extends LazyLogging {
     future onComplete {
       case Success(_) => logger.info("The dataset was loaded successfully.")
       case Failure(err) => {
-        logger.error("The RDF client failed to update the dataset.", err)
-        throw new RDFUpdateException("The RDF client failed to update the dataset.", err)
+        logger.error("The RDF client failed to execute the update query.", err)
+        throw new RDFUpdateException("The RDF client failed to execute the update query.", err)
       }
     }
     future

@@ -32,7 +32,7 @@ import scala.util.{Failure, Success, Try}
   * Date: 2019-03-12
   */
 
-class GraphDeleteFromQueryTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+class GraphDeleteTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
 
   override def onMessage(msg: IncomingMessage, params: String*)(implicit ec: ExecutionContext): Future[OutgoingMessage] = {
     logger.debug(s"Message received : \n${Json.prettyPrint(Json.parse(msg.bytes.utf8String))}")

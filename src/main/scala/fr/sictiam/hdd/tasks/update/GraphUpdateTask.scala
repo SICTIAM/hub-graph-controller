@@ -32,7 +32,7 @@ import scala.util.{Failure, Success, Try}
   * Date: 2019-03-12
   */
 
-class GraphUpdateFromQueryTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
+class GraphUpdateTask(override val topic: String, override val exchangeName: String)(implicit override val system: ActorSystem, override val materializer: ActorMaterializer, override val ec: ExecutionContext) extends AmqpRpcTask {
 
 
   override def onMessage(msg: IncomingMessage, params: String*)(implicit ec: ExecutionContext): Future[OutgoingMessage] = {

@@ -18,6 +18,7 @@ object Dependencies {
   lazy val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
   lazy val rabbitmqClient = "com.rabbitmq" % "amqp-client" % "5.6.0"
   lazy val jenaLibs = "org.apache.jena" % "apache-jena-libs" % "3.10.0" pomOnly()
-  lazy val amqpLib = "fr.sictiam" %% "hub-amqp-lib" % "0.1.1-SNAPSHOT"
+  lazy val amqpLib = "fr.sictiam" %% "hub-amqp-lib" % "0.1.2-SNAPSHOT"
+  lazy val rdf4jRuntime = "org.eclipse.rdf4j" % "rdf4j-runtime" % "2.5.0"
 
 }

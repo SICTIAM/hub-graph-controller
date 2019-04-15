@@ -62,7 +62,7 @@ class GraphAskTask(override val topic: String, override val exchangeName: String
             )
 
             val body = Json.obj(
-              "errorClass" -> JsString(err.getCause.getClass.getSimpleName),
+              "errorClass" -> JsString(err.getClass.getSimpleName),
               "errorMessage" -> JsString(err.getMessage)
             )
             AmqpMessage(head, body).toOutgoingMessage(msg.properties)

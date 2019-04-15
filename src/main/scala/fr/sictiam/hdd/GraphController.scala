@@ -18,6 +18,7 @@ package fr.sictiam.hdd
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
+import com.typesafe.scalalogging.LazyLogging
 import fr.sictiam.amqp.api.AmqpClientConfiguration
 import fr.sictiam.amqp.api.rpc.AmqpRpcController
 import fr.sictiam.hdd.rdf.RDFClient
@@ -28,12 +29,11 @@ import fr.sictiam.hdd.tasks.update.GraphUpdateTask
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, ExecutionContext}
-import scala.util.{Failure, Success}
 /**
   * Created by Nicolas DELAFORGE (nicolas.delaforge@mnemotix.com).
   * Date: 2019-03-12
   */
-object GraphController extends App {
+object GraphController extends App with LazyLogging {
 
   implicit val system = ActorSystem("GraphControllerSystem")
   implicit val materializer = ActorMaterializer()
@@ -53,11 +53,6 @@ object GraphController extends App {
   controller.registerTask("graph.delete.triples", new GraphDeleteTask("graph.delete.triples", AmqpClientConfiguration.exchangeName))
 
   val starting = controller.start
-  starting onComplete {
-    case Success(_) =>
-    case Failure(_) => sys.exit(1)
-  }
-
 
   sys addShutdownHook {
     Await.result(controller.shutdown, Duration.Inf)

@@ -2,7 +2,7 @@ import Dependencies._
 import sbt.url
 
 ThisBuild / scalaVersion := "2.12.8"
-ThisBuild / version := "0.1.1-SNAPSHOT"
+ThisBuild / version := "0.1.2-SNAPSHOT"
 ThisBuild / organization := "fr.sictiam"
 ThisBuild / organizationName := "SICTIAM"
 
@@ -53,6 +53,10 @@ lazy val root = (project in file("."))
       //        case n if n.startsWith("reference.conf") => MergeStrategy.concat
       case n if n.endsWith(".conf") => MergeStrategy.concat
       case n if n.endsWith(".properties") => MergeStrategy.concat
+      case PathList("META-INF", "services", "org.apache.jena.system.JenaSubsystemLifecycle") => MergeStrategy.concat
+      case PathList("META-INF", "services", "org.apache.spark.sql.sources.DataSourceRegister") => MergeStrategy.concat
+      case PathList("META-INF", "services", xs@_*) => MergeStrategy.concat
+      case PathList("META-INF", xs@_*) => MergeStrategy.discard
       case meta(_) => MergeStrategy.discard
       case x => MergeStrategy.first
     },
@@ -71,6 +75,7 @@ lazy val root = (project in file("."))
       playWSAhc,
       scalaLogging,
       jenaLibs,
+      rdf4jRuntime,
       alpakkaAmqp,
       akkaSlf4j,
       amqpLib

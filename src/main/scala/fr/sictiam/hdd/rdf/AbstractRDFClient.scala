@@ -16,20 +16,33 @@
   */
 package fr.sictiam.hdd.rdf
 
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.scalalogging.LazyLogging
+import org.apache.jena.query.ResultSet
+import org.apache.jena.rdf.model.Model
+import play.api.libs.json.JsValue
+
+import scala.concurrent.{ExecutionContext, Future}
 
 /**
   * Created by Nicolas DELAFORGE (nicolas.delaforge@mnemotix.com).
   * Date: 2019-03-19
   */
+trait AbstractRDFClient extends LazyLogging {
 
-object RDFStoreConfiguration {
-  lazy val conf: Config = Option(ConfigFactory.load().getConfig("rdfstore")).getOrElse(ConfigFactory.empty())
-  lazy val user: String = Option(conf.getString("user")).getOrElse("admin")
-  lazy val pwd: String = Option(conf.getString("password")).getOrElse("Pa55w0rd")
-  lazy val rootUri: String = Option(conf.getString("root.uri")).getOrElse("localhost")
-  lazy val repositoryName: String = Option(conf.getString("repository.name")).getOrElse("hdd")
-  lazy val readEndpoint: String = Option(conf.getString("read.endpoint")).getOrElse("sparql")
-  lazy val writeEndpoint: String = Option(conf.getString("write.endpoint")).getOrElse("update")
-  lazy val clientDriver: String = Option(conf.getString("client.driver")).getOrElse("rdf4j")
+  def init(): Unit
+
+  def load(file: String)(implicit ec: ExecutionContext): Future[Unit]
+
+  def create(jsonld: JsValue)(implicit ec: ExecutionContext): Future[Unit]
+
+  def select(qryStr: String)(implicit ec: ExecutionContext): Future[ResultSet]
+
+  def describe(qryStr: String)(implicit ec: ExecutionContext): Future[Model]
+
+  def construct(qryStr: String)(implicit ec: ExecutionContext): Future[Model]
+
+  def ask(qryStr: String)(implicit ec: ExecutionContext): Future[Boolean]
+
+  def update(updateStr: String)(implicit ec: ExecutionContext): Future[Unit]
+
 }

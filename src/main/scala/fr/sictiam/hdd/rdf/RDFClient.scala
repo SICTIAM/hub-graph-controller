@@ -16,177 +16,39 @@
   */
 package fr.sictiam.hdd.rdf
 
-import java.io.StringReader
+import play.api.libs.json.JsValue
 
-import com.typesafe.scalalogging.LazyLogging
-import fr.sictiam.hdd.exceptions._
-import org.apache.jena.rdf.model.{Model, ModelFactory}
-import org.apache.jena.rdfconnection.RDFConnectionFactory
-import org.apache.jena.riot.RiotException
-import org.apache.jena.sys.JenaSystem
-import org.apache.jena.system.Txn
-import play.api.libs.json.{JsValue, Json}
-
-import scala.concurrent.{ExecutionContext, Future}
-import scala.util.{Failure, Success}
+import scala.concurrent.ExecutionContext
 
 /**
   * Created by Nicolas DELAFORGE (nicolas.delaforge@mnemotix.com).
   * Date: 2019-03-19
   */
-object RDFClient extends LazyLogging {
 
-  def init() = {
-    org.apache.jena.query.ARQ.init()
-    JenaSystem.init()
-  }
+object RDFClient {
 
-  def load(file: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getWriteConnection()
-      Txn.executeWrite(conn, () => {
-        conn.load(file)
-      })
-      conn.close()
-    }
-    future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
-      case Failure(err) => {
-        logger.error("The store failed to load the dataset.", err)
-        throw new RDFLoadException("The store failed to load the dataset.", err)
-      }
-    }
-    future
-  }
-
-  def create(jsonld: JsValue)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val reader = new StringReader(Json.stringify(jsonld))
-      val m: Model = ModelFactory.createDefaultModel
-      try {
-        m.read(reader, null, "JSON-LD")
-        val conn = getWriteConnection()
-        Txn.executeWrite(conn, () => {
-          conn.load(m)
-        })
-        conn.close()
-      } catch {
-        case e: RiotException => throw new MessageParsingException("Unable to parse the message body. Well formed JSON-LD string is expected.", e)
-      }
-      finally if (reader != null) reader.close()
-    }
-    //        RDFParser.create.source(sr).lang(RDFLanguages.JSONLD).errorHandler(ErrorHandlerFactory.errorHandlerStrict).base(RDFParserConfiguration.baseUri).parse(model)
-    future onComplete {
-      case Success(_) => logger.info("The data was loaded successfully.")
-      case Failure(err) => {
-        logger.error("The store failed to load the data.", err)
-        throw new RDFLoadException("The store failed to load the data.", err)
-      }
-    }
-    future
-  }
-
-  def select(qryStr: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getReadConnection()
-      val rs = conn.query(qryStr).execSelect()
-      conn.close()
-      rs
-    }
-    future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-        throw new RDFSelectException("The RDF client failed to execute the query.", err)
-      }
-    }
-    future
-  }
-
-  def describe(qryStr: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getReadConnection()
-      val model = conn.queryDescribe(qryStr)
-      conn.close()
-      model
-    }
-
-    future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-        throw new RDFConstructException("The RDF client failed to execute the query.", err)
-      }
-    }
-    future
-  }
-
-  def construct(qryStr: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getReadConnection()
-      val model = conn.queryConstruct(qryStr)
-      conn.close()
-      model
-    }
-
-    future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-        throw new RDFConstructException("The RDF client failed to execute the query.", err)
-      }
-    }
-    future
-  }
-
-  def ask(qryStr: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getReadConnection()
-      val answer = conn.queryAsk(qryStr)
-      conn.close()
-      answer
-    }
-    future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-        throw new RDFAskException("The RDF client failed to execute the query.", err)
-      }
-    }
-    future
-  }
-
-  def update(updateStr: String)(implicit ec: ExecutionContext) = {
-    val future = Future {
-      val conn = getWriteConnection()
-      conn.update(updateStr)
-      conn.close()
-    }
-    future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the update query.", err)
-        throw new RDFUpdateException("The RDF client failed to execute the update query.", err)
-      }
-    }
-    future
-  }
-
-  private def getReadConnection() = {
-    try {
-      val suffix = if (RDFStoreConfiguration.readEndpoint.length == 0) "" else s"/${RDFStoreConfiguration.readEndpoint}"
-      RDFConnectionFactory.connectPW(s"${RDFStoreConfiguration.rootUri}/${RDFStoreConfiguration.repositoryName}$suffix", RDFStoreConfiguration.user, RDFStoreConfiguration.pwd)
-    } catch {
-      case t: Throwable => throw new RDFClientConnectException("Unable to connect to the SPARQL Read endpoint", t)
+  private lazy val client: AbstractRDFClient = {
+    RDFStoreConfiguration.clientDriver match {
+      case "jena" => new JenaRDFClient
+      case "rdf4j" => new Rdf4jRDFClient
+      case _ => new Rdf4jRDFClient
     }
   }
 
-  private def getWriteConnection() = {
-    try {
-      RDFConnectionFactory.connectPW(s"${RDFStoreConfiguration.rootUri}/${RDFStoreConfiguration.repositoryName}/${RDFStoreConfiguration.writeEndpoint}", RDFStoreConfiguration.user, RDFStoreConfiguration.pwd)
-    } catch {
-      case t: Throwable => throw new RDFClientConnectException("Unable to connect to the SPARQL Write endpoint", t)
-    }
-  }
+  def init() = client.init()
+
+  def load(file: String)(implicit ec: ExecutionContext) = client.load(file)
+
+  def create(jsonld: JsValue)(implicit ec: ExecutionContext) = client.create(jsonld)
+
+  def select(qryStr: String)(implicit ec: ExecutionContext) = client.select(qryStr)
+
+  def describe(qryStr: String)(implicit ec: ExecutionContext) = client.describe(qryStr)
+
+  def construct(qryStr: String)(implicit ec: ExecutionContext) = client.construct(qryStr)
+
+  def ask(qryStr: String)(implicit ec: ExecutionContext) = client.ask(qryStr)
+
+  def update(updateStr: String)(implicit ec: ExecutionContext) = client.update(updateStr)
 
 }

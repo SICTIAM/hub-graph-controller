@@ -31,7 +31,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class Rdf4jRDFClient extends AbstractRDFClient {
 
 
-  override def init(): Unit = ???
+  override def init()(implicit ec: ExecutionContext): Unit = ???
 
   override def load(file: String)(implicit ec: ExecutionContext): Future[Unit] = ???
 

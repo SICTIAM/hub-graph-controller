@@ -29,7 +29,13 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait AbstractRDFClient extends LazyLogging {
 
-  def init(): Unit
+  var isVerbose:Boolean=true
+
+  def verbose() = isVerbose=true
+
+  def mute() = isVerbose=false
+
+  def init()(implicit ec: ExecutionContext): Unit
 
   def load(file: String)(implicit ec: ExecutionContext): Future[Unit]
 

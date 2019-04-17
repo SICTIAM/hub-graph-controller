@@ -17,16 +17,20 @@
 package fr.sictiam.hdd.rdf
 
 import java.io.StringReader
+import java.util.concurrent.TimeoutException
 
 import fr.sictiam.hdd.exceptions._
+import org.apache.http.conn.HttpHostConnectException
 import org.apache.jena.rdf.model.{Model, ModelFactory}
 import org.apache.jena.rdfconnection.RDFConnectionFactory
 import org.apache.jena.riot.RiotException
+import org.apache.jena.sparql.engine.http.QueryExceptionHTTP
 import org.apache.jena.sys.JenaSystem
 import org.apache.jena.system.Txn
 import play.api.libs.json.{JsValue, Json}
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.duration._
+import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
 /**
@@ -35,9 +39,36 @@ import scala.util.{Failure, Success}
   */
 class JenaRDFClient extends AbstractRDFClient {
 
-  def init() = {
-    org.apache.jena.query.ARQ.init()
-    JenaSystem.init()
+  def init()(implicit ec: ExecutionContext) = {
+    try{
+      Await.result(ask("ASK WHERE{?p ?r ?q} LIMIT 1"), 2.seconds)
+      org.apache.jena.query.ARQ.init()
+      JenaSystem.init()
+    }catch{
+      case e:TimeoutException => {
+        if(isVerbose) logger.error("TimeoutException", e.getCause)
+        throw new RDFClientConnectException("Connection to SPARQL Endpoint timeout.", e)
+      }
+      case e:QueryExceptionHTTP => {
+        if(isVerbose) logger.error("QueryExceptionHTTP", e)
+        if(e.getCause != null){
+          e.getCause match {
+            case ex:HttpHostConnectException => {
+              if(isVerbose) logger.warn("The RDF store may be offline.")
+              throw new RDFClientConnectException("Unable to connect to SPARQL Endpoint", ex)
+            }
+            case ex:Throwable => throw new RDFClientConnectException("Unknown error.", ex)
+          }
+        }else{
+          if(isVerbose) logger.warn("The RDF repository does not exist. You should create it before making queries.")
+          throw new RDFClientUnknownRepositoryException(s"Unknown repository '${RDFStoreConfiguration.repositoryName}'", e)
+        }
+      }
+      case t:Throwable=> {
+        if(isVerbose) logger.error("Unknown error", t.getCause)
+        throw new RDFClientConnectException("Unknown error", t)
+      }
+    }
   }
 
   def load(file: String)(implicit ec: ExecutionContext) = {
@@ -49,9 +80,9 @@ class JenaRDFClient extends AbstractRDFClient {
       conn.close()
     }
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => if(isVerbose) logger.info("The dataset was loaded successfully.")
       case Failure(err) => {
-        logger.error("The store failed to load the dataset.", err)
+        if(isVerbose) logger.error("The store failed to load the dataset.", err)
       }
     }
     future
@@ -74,9 +105,9 @@ class JenaRDFClient extends AbstractRDFClient {
       finally if (reader != null) reader.close()
     }
     future onComplete {
-      case Success(_) => logger.info("The data was loaded successfully.")
+      case Success(_) => if(isVerbose) logger.info("The data was loaded successfully.")
       case Failure(err) => {
-        logger.error("The store failed to load the data.", err)
+        if(isVerbose) logger.error("The store failed to load the data.", err)
       }
     }
     future
@@ -90,10 +121,8 @@ class JenaRDFClient extends AbstractRDFClient {
       rs
     }
     future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-      }
+      case Success(_) => if(isVerbose) logger.info("The query was executed successfully.")
+      case Failure(err) => if(isVerbose) logger.error("The RDF client failed to execute the query.", err)
     }
     future
   }
@@ -107,10 +136,8 @@ class JenaRDFClient extends AbstractRDFClient {
     }
 
     future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
-      case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
-      }
+      case Success(_) => if(isVerbose) logger.info("The query was executed successfully.")
+      case Failure(err) => if(isVerbose) logger.error("The RDF client failed to execute the query.", err)
     }
     future
   }
@@ -124,9 +151,9 @@ class JenaRDFClient extends AbstractRDFClient {
     }
 
     future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
+      case Success(_) => if(isVerbose) logger.info("The query was executed successfully.")
       case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
+        if(isVerbose) logger.error("The RDF client failed to execute the query.", err)
       }
     }
     future
@@ -140,9 +167,9 @@ class JenaRDFClient extends AbstractRDFClient {
       answer
     }
     future onComplete {
-      case Success(_) => logger.info("The query was executed successfully.")
+      case Success(_) => if(isVerbose) logger.info("The query was executed successfully.")
       case Failure(err) => {
-        logger.error("The RDF client failed to execute the query.", err)
+        if(isVerbose) logger.error(s"The RDF client failed to execute the query: $qryStr", err)
       }
     }
     future
@@ -155,9 +182,9 @@ class JenaRDFClient extends AbstractRDFClient {
       conn.close()
     }
     future onComplete {
-      case Success(_) => logger.info("The dataset was loaded successfully.")
+      case Success(_) => if(isVerbose) logger.info("The dataset was loaded successfully.")
       case Failure(err) => {
-        logger.error("The RDF client failed to execute the update query.", err)
+        if(isVerbose) logger.error("The RDF client failed to execute the update query.", err)
       }
     }
     future

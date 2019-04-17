@@ -35,7 +35,11 @@ object RDFClient {
     }
   }
 
-  def init() = client.init()
+  def verbose() = client.verbose()
+
+  def mute() = client.mute()
+
+  def init()(implicit ec: ExecutionContext) = client.init()
 
   def load(file: String)(implicit ec: ExecutionContext) = client.load(file)
 

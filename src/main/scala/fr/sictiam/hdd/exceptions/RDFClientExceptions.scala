@@ -25,6 +25,8 @@ abstract class RDFClientException(message: String, cause: Throwable) extends Exc
 
 case class RDFClientConnectException(message: String, cause: Throwable) extends RDFClientException(message, cause)
 
+case class RDFClientUnknownRepositoryException(message: String, cause: Throwable) extends RDFClientException(message, cause)
+
 case class RDFLoadException(message: String, cause: Throwable) extends RDFClientException(message, cause)
 
 case class RDFUpdateException(message: String, cause: Throwable) extends RDFClientException(message, cause)
